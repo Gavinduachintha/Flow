@@ -101,6 +101,7 @@ Type=Application
 Name=Flow
 Comment=Raspberry Pi fan and system monitor
 Exec=flow
+Icon=flow
 Terminal=false
 Categories=System;Utility;
 StartupNotify=true
