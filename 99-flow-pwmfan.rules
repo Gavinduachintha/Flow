@@ -1,0 +1,4 @@
+# Allow members of the gpio group to control the Raspberry Pi PWM fan.
+ACTION=="add", SUBSYSTEM=="hwmon", ATTR{name}=="pwmfan", \
+    RUN+="/bin/chown root:gpio /sys/class/hwmon/%k/pwm1", \
+    RUN+="/bin/chmod 0660 /sys/class/hwmon/%k/pwm1"

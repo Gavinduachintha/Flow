@@ -60,3 +60,6 @@ install(FILES assets/icons/Flow_512.png
 install(FILES flow.desktop
     DESTINATION share/applications
 )
+install(FILES 99-flow-pwmfan.rules
+    DESTINATION lib/udev/rules.d
+)
