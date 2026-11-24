@@ -1,6 +1,7 @@
 # Flow
 
 <div align="center">
+<img src= "assets/icons/Flow_512.png", alt="Flow Icon" width="300">
 
 **A clean, lightweight GTK 4 fan and system monitor for Raspberry Pi 5**
 
