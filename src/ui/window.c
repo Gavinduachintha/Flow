@@ -11,6 +11,8 @@
 #define AUTO_TEMP_MAX 75.0
 #define PWM_MAX 255
 #define REFRESH_SECONDS 2
+#define DEVELOPER_GITHUB "https://github.com/Gavinduachintha"
+#define PROJECT_GITHUB "https://github.com/Gavinduachintha/Flow"
 
 typedef struct {
     GtkWidget *window;
@@ -27,7 +29,7 @@ typedef struct {
     gboolean updating_scale;
     gboolean startup_refresh;
     int pwm_value;
-} PibreezeUI;
+} FlowUI;
 
 static GtkWidget *
 make_card (void)
@@ -88,7 +90,7 @@ apply_css (void)
 }
 
 static void
-set_status_error (PibreezeUI *ui,
+set_status_error (FlowUI *ui,
                   const char *message)
 {
     gtk_label_set_text (GTK_LABEL (ui->status_label), message);
@@ -96,14 +98,14 @@ set_status_error (PibreezeUI *ui,
 }
 
 static void
-set_status_ok (PibreezeUI *ui)
+set_status_ok (FlowUI *ui)
 {
     gtk_label_set_text (GTK_LABEL (ui->status_label), "Fan control ready");
     gtk_widget_remove_css_class (ui->status_label, "status-error");
 }
 
 static void
-write_fan_pwm (PibreezeUI *ui,
+write_fan_pwm (FlowUI *ui,
                int         pwm)
 {
     if (set_fan_speed (pwm) != 0) {
@@ -138,7 +140,7 @@ temperature_to_pwm (double temperature)
 }
 
 static void
-update_pwm_controls (PibreezeUI *ui,
+update_pwm_controls (FlowUI *ui,
                      int         pwm)
 {
     int percentage;
@@ -157,13 +159,13 @@ update_pwm_controls (PibreezeUI *ui,
 static gboolean
 refresh_readings (gpointer user_data)
 {
-    PibreezeUI *ui;
+    FlowUI *ui;
     double temperature;
     double frequency;
     int fan_rpm;
     char text[64];
 
-    ui = (PibreezeUI *) user_data;
+    ui = (FlowUI *) user_data;
 
     if (get_cpu_temperature (&temperature) == 0) {
         g_snprintf (text, sizeof (text), "%.1f °C", temperature);
@@ -218,10 +220,10 @@ static void
 on_pwm_changed (GtkRange    *range,
                 gpointer     user_data)
 {
-    PibreezeUI *ui;
+    FlowUI *ui;
     int pwm;
 
-    ui = (PibreezeUI *) user_data;
+    ui = (FlowUI *) user_data;
     if (ui->updating_scale) {
         return;
     }
@@ -239,11 +241,11 @@ on_auto_mode_changed (GtkSwitch *sw,
                       gboolean   state,
                       gpointer   user_data)
 {
-    PibreezeUI *ui;
+    FlowUI *ui;
 
     (void) sw;
 
-    ui = (PibreezeUI *) user_data;
+    ui = (FlowUI *) user_data;
     ui->auto_mode = state;
     gtk_widget_set_sensitive (ui->pwm_scale, !state);
 
@@ -267,11 +269,11 @@ static void
 on_window_destroy (GtkWidget *window,
                    gpointer   user_data)
 {
-    PibreezeUI *ui;
+    FlowUI *ui;
 
     (void) window;
 
-    ui = (PibreezeUI *) user_data;
+    ui = (FlowUI *) user_data;
     if (ui->timer_id != 0) {
         g_source_remove (ui->timer_id);
         ui->timer_id = 0;
@@ -279,10 +281,50 @@ on_window_destroy (GtkWidget *window,
     g_free (ui);
 }
 
-GtkWidget *
-pibreeze_window_new (GtkApplication *app)
+static void
+on_about_clicked (GtkButton *button,
+                  gpointer   user_data)
 {
-    PibreezeUI *ui;
+    GtkWidget *about;
+    const char *authors[] = {"Gavinduachintha", NULL};
+
+    (void) button;
+
+    about = gtk_about_dialog_new ();
+    gtk_about_dialog_set_program_name (
+        GTK_ABOUT_DIALOG (about),
+        "Flow");
+    gtk_about_dialog_set_version (
+        GTK_ABOUT_DIALOG (about),
+        "1.0");
+    gtk_about_dialog_set_comments (
+        GTK_ABOUT_DIALOG (about),
+        "Raspberry Pi 5 fan and system monitor.\n"
+        "Developer: " DEVELOPER_GITHUB);
+    gtk_about_dialog_set_authors (
+        GTK_ABOUT_DIALOG (about),
+        (const char **) authors);
+    gtk_about_dialog_set_copyright (
+        GTK_ABOUT_DIALOG (about),
+        "Copyright © 2026 Gavinduachintha");
+    gtk_about_dialog_set_website (
+        GTK_ABOUT_DIALOG (about),
+        PROJECT_GITHUB);
+    gtk_about_dialog_set_website_label (
+        GTK_ABOUT_DIALOG (about),
+        "View project on GitHub");
+
+    gtk_window_set_transient_for (
+        GTK_WINDOW (about),
+        GTK_WINDOW (user_data));
+    gtk_window_set_modal (GTK_WINDOW (about), TRUE);
+    gtk_window_present (GTK_WINDOW (about));
+}
+
+GtkWidget *
+flow_window_new (GtkApplication *app)
+{
+    FlowUI *ui;
     GtkWidget *window;
     GtkWidget *scroller;
     GtkWidget *main_box;
@@ -296,8 +338,10 @@ pibreeze_window_new (GtkApplication *app)
     GtkWidget *control_title;
     GtkWidget *control_row;
     GtkWidget *control_label;
+    GtkWidget *header_bar;
+    GtkWidget *about_button;
 
-    ui = g_new0 (PibreezeUI, 1);
+    ui = g_new0 (FlowUI, 1);
     ui->auto_mode = TRUE;
     ui->startup_refresh = TRUE;
     ui->pwm_value = -1;
@@ -306,8 +350,21 @@ pibreeze_window_new (GtkApplication *app)
 
     window = gtk_application_window_new (app);
     ui->window = window;
-    gtk_window_set_title (GTK_WINDOW (window), "PiBreeze");
+    gtk_window_set_title (GTK_WINDOW (window), "Flow");
     gtk_window_set_default_size (GTK_WINDOW (window), 380, 520);
+
+    header_bar = gtk_header_bar_new ();
+    gtk_header_bar_set_show_title_buttons (GTK_HEADER_BAR (header_bar), TRUE);
+    about_button = gtk_button_new_with_label ("About");
+    g_signal_connect (
+        about_button,
+        "clicked",
+        G_CALLBACK (on_about_clicked),
+        window);
+    gtk_header_bar_pack_end (
+        GTK_HEADER_BAR (header_bar),
+        about_button);
+    gtk_window_set_titlebar (GTK_WINDOW (window), header_bar);
 
     scroller = gtk_scrolled_window_new ();
     gtk_scrolled_window_set_policy (
