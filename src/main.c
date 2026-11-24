@@ -1,37 +1,31 @@
 
-// #include <gtk/gtk.h>
-#include <stdio.h>
-#include <unistd.h>
-int get_cpu_temperature(double *temperature);
-int get_fan_speed(int *fan_speed);
-double get_cpu_frequency(double *frequency);
+#include <gtk/gtk.h>
 
-int main(int argc, char **argv){
-    int running = 1;
-    while (running){
-        double temperature;
-        int fan_speed;
-        double cpu_frequency;
+#include "ui/window.h"
 
-        if (get_cpu_temperature(&temperature) != 0) {
-            printf("Failed to read CPU temperature\n");
-            return 1;
-        }
-        if(get_fan_speed(&fan_speed)!=0){
-            printf("Failed to read the fan speed\n");
-            return 1;
-        }
-        if(get_cpu_frequency(&cpu_frequency)!=0){
-            printf("Failed to read the frequency\n");
-            return 1;
-        }
+static void
+activate (GtkApplication *app,
+          gpointer         user_data)
+{
+    GtkWidget *window;
 
-        printf("CPU Temperature: %.2f °C\n", temperature);
-        printf("Fan Speed: %d\n",fan_speed);
-        printf("CPU Frequncy: %f\n",cpu_frequency);
-        sleep(2);
-    }
-    
-    return 0;
+    (void) user_data;
 
+    window = pibreeze_window_new (app);
+    gtk_window_present (GTK_WINDOW (window));
+}
+
+int
+main (int argc, char **argv)
+{
+    GtkApplication *app;
+    int status;
+
+    app = gtk_application_new ("com.zenlab64.pibreeze", G_APPLICATION_DEFAULT_FLAGS);
+    g_signal_connect (app, "activate", G_CALLBACK (activate), NULL);
+
+    status = g_application_run (G_APPLICATION (app), argc, argv);
+    g_object_unref (app);
+
+    return status;
 }
