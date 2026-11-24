@@ -48,15 +48,28 @@ make_card (void)
 }
 
 static GtkWidget *
-make_card_title (const char *text)
+make_card_title (const char *icon_name,
+                 const char *text)
 {
+    GtkWidget *row;
+    GtkWidget *icon;
     GtkWidget *label;
+
+    row = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 8);
+    gtk_widget_set_halign (row, GTK_ALIGN_START);
+
+    icon = gtk_image_new_from_icon_name (icon_name);
+    gtk_image_set_pixel_size (GTK_IMAGE (icon), 20);
+    gtk_widget_add_css_class (icon, "card-icon");
 
     label = gtk_label_new (text);
     gtk_widget_set_halign (label, GTK_ALIGN_START);
     gtk_widget_add_css_class (label, "card-title");
 
-    return label;
+    gtk_box_append (GTK_BOX (row), icon);
+    gtk_box_append (GTK_BOX (row), label);
+
+    return row;
 }
 
 static void
@@ -68,6 +81,7 @@ apply_css (void)
         "window { background: #eef1f5; }\n"
         ".card { background: #ffffff; border-radius: 14px; padding: 16px; }\n"
         ".card-title { color: #55606c; font-size: 13px; font-weight: 600; }\n"
+        ".card-icon { color: #55606c; }\n"
         ".big-value { color: #20252b; font-size: 34px; font-weight: 800; }\n"
         ".medium-value { color: #20252b; font-size: 26px; font-weight: 700; }\n"
         ".status-error { color: #c62828; font-weight: 700; }\n";
@@ -351,6 +365,7 @@ flow_window_new (GtkApplication *app)
     window = gtk_application_window_new (app);
     ui->window = window;
     gtk_window_set_title (GTK_WINDOW (window), "Flow");
+    gtk_window_set_icon_name (GTK_WINDOW (window), "flow");
     gtk_window_set_default_size (GTK_WINDOW (window), 380, 520);
 
     header_bar = gtk_header_bar_new ();
@@ -381,7 +396,7 @@ flow_window_new (GtkApplication *app)
     gtk_window_set_child (GTK_WINDOW (window), scroller);
 
     temperature_card = make_card ();
-    temperature_title = make_card_title ("CPU temperature");
+    temperature_title = make_card_title ("temperature-normal", "CPU temperature");
     ui->temperature_value = gtk_label_new ("-- °C");
     gtk_widget_set_halign (ui->temperature_value, GTK_ALIGN_START);
     gtk_widget_add_css_class (ui->temperature_value, "big-value");
@@ -403,7 +418,7 @@ flow_window_new (GtkApplication *app)
     gtk_box_append (GTK_BOX (main_box), temperature_card);
 
     fan_card = make_card ();
-    fan_title = make_card_title ("Fan speed");
+    fan_title = make_card_title ("applications-system-symbolic", "Fan speed");
     ui->fan_value = gtk_label_new ("-- RPM");
     gtk_widget_set_halign (ui->fan_value, GTK_ALIGN_START);
     gtk_widget_add_css_class (ui->fan_value, "medium-value");
@@ -412,7 +427,7 @@ flow_window_new (GtkApplication *app)
     gtk_box_append (GTK_BOX (main_box), fan_card);
 
     frequency_card = make_card ();
-    frequency_title = make_card_title ("CPU frequency");
+    frequency_title = make_card_title ("cpu", "CPU frequency");
     ui->frequency_value = gtk_label_new ("-- GHz");
     gtk_widget_set_halign (ui->frequency_value, GTK_ALIGN_START);
     gtk_widget_add_css_class (ui->frequency_value, "medium-value");
@@ -421,7 +436,7 @@ flow_window_new (GtkApplication *app)
     gtk_box_append (GTK_BOX (main_box), frequency_card);
 
     control_card = make_card ();
-    control_title = make_card_title ("Fan control");
+    control_title = make_card_title ("preferences-system-symbolic", "Fan control");
     gtk_box_append (GTK_BOX (control_card), control_title);
 
     control_row = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
