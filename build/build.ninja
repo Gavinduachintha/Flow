@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: PiBreeze
+# Project: Flow
 # Configurations: 
 # =============================================================================
 
@@ -36,66 +36,66 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = /home/gavi/Projects/PiBreeze/build/
 # =============================================================================
-# Object build statements for EXECUTABLE target pibreeze
+# Object build statements for EXECUTABLE target flow
 
 
 #############################################
-# Order-only phony target for pibreeze
+# Order-only phony target for flow
 
-build cmake_object_order_depends_target_pibreeze: phony || .
+build cmake_object_order_depends_target_flow: phony || .
 
-build CMakeFiles/pibreeze.dir/src/main.c.o: C_COMPILER__pibreeze_unscanned_ /home/gavi/Projects/PiBreeze/src/main.c || cmake_object_order_depends_target_pibreeze
-  DEP_FILE = CMakeFiles/pibreeze.dir/src/main.c.o.d
+build CMakeFiles/flow.dir/src/main.c.o: C_COMPILER__flow_unscanned_ /home/gavi/Projects/PiBreeze/src/main.c || cmake_object_order_depends_target_flow
+  DEP_FILE = CMakeFiles/flow.dir/src/main.c.o.d
   FLAGS = -std=c17 -Wall -Wextra -Wpedantic -pthread
   INCLUDES = -I/home/gavi/Projects/PiBreeze/include -isystem /usr/include/gtk-4.0 -isystem /usr/include/pango-1.0 -isystem /usr/include/glib-2.0 -isystem /usr/lib/aarch64-linux-gnu/glib-2.0/include -isystem /usr/include/sysprof-6 -isystem /usr/include/harfbuzz -isystem /usr/include/freetype2 -isystem /usr/include/libpng16 -isystem /usr/include/libmount -isystem /usr/include/blkid -isystem /usr/include/fribidi -isystem /usr/include/cairo -isystem /usr/include/pixman-1 -isystem /usr/include/gdk-pixbuf-2.0 -isystem /usr/include/webp -isystem /usr/include/graphene-1.0 -isystem /usr/lib/aarch64-linux-gnu/graphene-1.0/include
-  OBJECT_DIR = CMakeFiles/pibreeze.dir
-  OBJECT_FILE_DIR = CMakeFiles/pibreeze.dir/src
+  OBJECT_DIR = CMakeFiles/flow.dir
+  OBJECT_FILE_DIR = CMakeFiles/flow.dir/src
 
-build CMakeFiles/pibreeze.dir/src/thermal.c.o: C_COMPILER__pibreeze_unscanned_ /home/gavi/Projects/PiBreeze/src/thermal.c || cmake_object_order_depends_target_pibreeze
-  DEP_FILE = CMakeFiles/pibreeze.dir/src/thermal.c.o.d
+build CMakeFiles/flow.dir/src/thermal.c.o: C_COMPILER__flow_unscanned_ /home/gavi/Projects/PiBreeze/src/thermal.c || cmake_object_order_depends_target_flow
+  DEP_FILE = CMakeFiles/flow.dir/src/thermal.c.o.d
   FLAGS = -std=c17 -Wall -Wextra -Wpedantic -pthread
   INCLUDES = -I/home/gavi/Projects/PiBreeze/include -isystem /usr/include/gtk-4.0 -isystem /usr/include/pango-1.0 -isystem /usr/include/glib-2.0 -isystem /usr/lib/aarch64-linux-gnu/glib-2.0/include -isystem /usr/include/sysprof-6 -isystem /usr/include/harfbuzz -isystem /usr/include/freetype2 -isystem /usr/include/libpng16 -isystem /usr/include/libmount -isystem /usr/include/blkid -isystem /usr/include/fribidi -isystem /usr/include/cairo -isystem /usr/include/pixman-1 -isystem /usr/include/gdk-pixbuf-2.0 -isystem /usr/include/webp -isystem /usr/include/graphene-1.0 -isystem /usr/lib/aarch64-linux-gnu/graphene-1.0/include
-  OBJECT_DIR = CMakeFiles/pibreeze.dir
-  OBJECT_FILE_DIR = CMakeFiles/pibreeze.dir/src
+  OBJECT_DIR = CMakeFiles/flow.dir
+  OBJECT_FILE_DIR = CMakeFiles/flow.dir/src
 
-build CMakeFiles/pibreeze.dir/src/fan.c.o: C_COMPILER__pibreeze_unscanned_ /home/gavi/Projects/PiBreeze/src/fan.c || cmake_object_order_depends_target_pibreeze
-  DEP_FILE = CMakeFiles/pibreeze.dir/src/fan.c.o.d
+build CMakeFiles/flow.dir/src/fan.c.o: C_COMPILER__flow_unscanned_ /home/gavi/Projects/PiBreeze/src/fan.c || cmake_object_order_depends_target_flow
+  DEP_FILE = CMakeFiles/flow.dir/src/fan.c.o.d
   FLAGS = -std=c17 -Wall -Wextra -Wpedantic -pthread
   INCLUDES = -I/home/gavi/Projects/PiBreeze/include -isystem /usr/include/gtk-4.0 -isystem /usr/include/pango-1.0 -isystem /usr/include/glib-2.0 -isystem /usr/lib/aarch64-linux-gnu/glib-2.0/include -isystem /usr/include/sysprof-6 -isystem /usr/include/harfbuzz -isystem /usr/include/freetype2 -isystem /usr/include/libpng16 -isystem /usr/include/libmount -isystem /usr/include/blkid -isystem /usr/include/fribidi -isystem /usr/include/cairo -isystem /usr/include/pixman-1 -isystem /usr/include/gdk-pixbuf-2.0 -isystem /usr/include/webp -isystem /usr/include/graphene-1.0 -isystem /usr/lib/aarch64-linux-gnu/graphene-1.0/include
-  OBJECT_DIR = CMakeFiles/pibreeze.dir
-  OBJECT_FILE_DIR = CMakeFiles/pibreeze.dir/src
+  OBJECT_DIR = CMakeFiles/flow.dir
+  OBJECT_FILE_DIR = CMakeFiles/flow.dir/src
 
-build CMakeFiles/pibreeze.dir/src/system_info.c.o: C_COMPILER__pibreeze_unscanned_ /home/gavi/Projects/PiBreeze/src/system_info.c || cmake_object_order_depends_target_pibreeze
-  DEP_FILE = CMakeFiles/pibreeze.dir/src/system_info.c.o.d
+build CMakeFiles/flow.dir/src/system_info.c.o: C_COMPILER__flow_unscanned_ /home/gavi/Projects/PiBreeze/src/system_info.c || cmake_object_order_depends_target_flow
+  DEP_FILE = CMakeFiles/flow.dir/src/system_info.c.o.d
   FLAGS = -std=c17 -Wall -Wextra -Wpedantic -pthread
   INCLUDES = -I/home/gavi/Projects/PiBreeze/include -isystem /usr/include/gtk-4.0 -isystem /usr/include/pango-1.0 -isystem /usr/include/glib-2.0 -isystem /usr/lib/aarch64-linux-gnu/glib-2.0/include -isystem /usr/include/sysprof-6 -isystem /usr/include/harfbuzz -isystem /usr/include/freetype2 -isystem /usr/include/libpng16 -isystem /usr/include/libmount -isystem /usr/include/blkid -isystem /usr/include/fribidi -isystem /usr/include/cairo -isystem /usr/include/pixman-1 -isystem /usr/include/gdk-pixbuf-2.0 -isystem /usr/include/webp -isystem /usr/include/graphene-1.0 -isystem /usr/lib/aarch64-linux-gnu/graphene-1.0/include
-  OBJECT_DIR = CMakeFiles/pibreeze.dir
-  OBJECT_FILE_DIR = CMakeFiles/pibreeze.dir/src
+  OBJECT_DIR = CMakeFiles/flow.dir
+  OBJECT_FILE_DIR = CMakeFiles/flow.dir/src
 
-build CMakeFiles/pibreeze.dir/src/ui/window.c.o: C_COMPILER__pibreeze_unscanned_ /home/gavi/Projects/PiBreeze/src/ui/window.c || cmake_object_order_depends_target_pibreeze
-  DEP_FILE = CMakeFiles/pibreeze.dir/src/ui/window.c.o.d
+build CMakeFiles/flow.dir/src/ui/window.c.o: C_COMPILER__flow_unscanned_ /home/gavi/Projects/PiBreeze/src/ui/window.c || cmake_object_order_depends_target_flow
+  DEP_FILE = CMakeFiles/flow.dir/src/ui/window.c.o.d
   FLAGS = -std=c17 -Wall -Wextra -Wpedantic -pthread
   INCLUDES = -I/home/gavi/Projects/PiBreeze/include -isystem /usr/include/gtk-4.0 -isystem /usr/include/pango-1.0 -isystem /usr/include/glib-2.0 -isystem /usr/lib/aarch64-linux-gnu/glib-2.0/include -isystem /usr/include/sysprof-6 -isystem /usr/include/harfbuzz -isystem /usr/include/freetype2 -isystem /usr/include/libpng16 -isystem /usr/include/libmount -isystem /usr/include/blkid -isystem /usr/include/fribidi -isystem /usr/include/cairo -isystem /usr/include/pixman-1 -isystem /usr/include/gdk-pixbuf-2.0 -isystem /usr/include/webp -isystem /usr/include/graphene-1.0 -isystem /usr/lib/aarch64-linux-gnu/graphene-1.0/include
-  OBJECT_DIR = CMakeFiles/pibreeze.dir
-  OBJECT_FILE_DIR = CMakeFiles/pibreeze.dir/src/ui
+  OBJECT_DIR = CMakeFiles/flow.dir
+  OBJECT_FILE_DIR = CMakeFiles/flow.dir/src/ui
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target pibreeze
+# Link build statements for EXECUTABLE target flow
 
 
 #############################################
-# Link the executable pibreeze
+# Link the executable flow
 
-build pibreeze: C_EXECUTABLE_LINKER__pibreeze_ CMakeFiles/pibreeze.dir/src/main.c.o CMakeFiles/pibreeze.dir/src/thermal.c.o CMakeFiles/pibreeze.dir/src/fan.c.o CMakeFiles/pibreeze.dir/src/system_info.c.o CMakeFiles/pibreeze.dir/src/ui/window.c.o | /usr/lib/aarch64-linux-gnu/libgtk-4.so /usr/lib/aarch64-linux-gnu/libpangocairo-1.0.so /usr/lib/aarch64-linux-gnu/libpango-1.0.so /usr/lib/aarch64-linux-gnu/libharfbuzz.so /usr/lib/aarch64-linux-gnu/libgdk_pixbuf-2.0.so /usr/lib/aarch64-linux-gnu/libcairo-gobject.so /usr/lib/aarch64-linux-gnu/libcairo.so /usr/lib/aarch64-linux-gnu/libvulkan.so /usr/lib/aarch64-linux-gnu/libgraphene-1.0.so /usr/lib/aarch64-linux-gnu/libgio-2.0.so /usr/lib/aarch64-linux-gnu/libgobject-2.0.so /usr/lib/aarch64-linux-gnu/libglib-2.0.so
-  DEP_FILE = CMakeFiles/pibreeze.dir/link.d
-  LINK_FLAGS = -Wl,--dependency-file=CMakeFiles/pibreeze.dir/link.d
+build flow: C_EXECUTABLE_LINKER__flow_ CMakeFiles/flow.dir/src/main.c.o CMakeFiles/flow.dir/src/thermal.c.o CMakeFiles/flow.dir/src/fan.c.o CMakeFiles/flow.dir/src/system_info.c.o CMakeFiles/flow.dir/src/ui/window.c.o | /usr/lib/aarch64-linux-gnu/libgtk-4.so /usr/lib/aarch64-linux-gnu/libpangocairo-1.0.so /usr/lib/aarch64-linux-gnu/libpango-1.0.so /usr/lib/aarch64-linux-gnu/libharfbuzz.so /usr/lib/aarch64-linux-gnu/libgdk_pixbuf-2.0.so /usr/lib/aarch64-linux-gnu/libcairo-gobject.so /usr/lib/aarch64-linux-gnu/libcairo.so /usr/lib/aarch64-linux-gnu/libvulkan.so /usr/lib/aarch64-linux-gnu/libgraphene-1.0.so /usr/lib/aarch64-linux-gnu/libgio-2.0.so /usr/lib/aarch64-linux-gnu/libgobject-2.0.so /usr/lib/aarch64-linux-gnu/libglib-2.0.so
+  DEP_FILE = CMakeFiles/flow.dir/link.d
+  LINK_FLAGS = -Wl,--dependency-file=CMakeFiles/flow.dir/link.d
   LINK_LIBRARIES = -lm  /usr/lib/aarch64-linux-gnu/libgtk-4.so  /usr/lib/aarch64-linux-gnu/libpangocairo-1.0.so  /usr/lib/aarch64-linux-gnu/libpango-1.0.so  /usr/lib/aarch64-linux-gnu/libharfbuzz.so  /usr/lib/aarch64-linux-gnu/libgdk_pixbuf-2.0.so  /usr/lib/aarch64-linux-gnu/libcairo-gobject.so  /usr/lib/aarch64-linux-gnu/libcairo.so  /usr/lib/aarch64-linux-gnu/libvulkan.so  /usr/lib/aarch64-linux-gnu/libgraphene-1.0.so  /usr/lib/aarch64-linux-gnu/libgio-2.0.so  /usr/lib/aarch64-linux-gnu/libgobject-2.0.so  /usr/lib/aarch64-linux-gnu/libglib-2.0.so
-  OBJECT_DIR = CMakeFiles/pibreeze.dir
+  OBJECT_DIR = CMakeFiles/flow.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = pibreeze
-  TARGET_PDB = pibreeze.dbg
+  TARGET_FILE = flow
+  TARGET_PDB = flow.dbg
 
 
 #############################################
@@ -173,7 +173,7 @@ build install/strip: phony CMakeFiles/install/strip.util
 #############################################
 # Folder: /home/gavi/Projects/PiBreeze/build
 
-build all: phony pibreeze
+build all: phony flow
 
 # =============================================================================
 # Built-in targets

@@ -1,8 +1,16 @@
 # ninja log v6
-91	105	1795492065491701447	CMakeFiles/pibreeze.dir/src/controller.c.o	28936134a26afac1
-31	65	1795492065431701341	CMakeFiles/pibreeze.dir/src/fan.c.o	a7208eeaab5cb7dc
-65	91	1795492065463701398	CMakeFiles/pibreeze.dir/src/system_info.c.o	d48acbf8fa46819f
-105	1469	1795492065503701469	CMakeFiles/pibreeze.dir/src/ui/window.c.o	af2318b75bc89870
-1	31	1795492065399701285	CMakeFiles/pibreeze.dir/src/thermal.c.o	8d32958b38b4f1d0
-1	1445	1795492065399701285	CMakeFiles/pibreeze.dir/src/main.c.o	d27d64cf7c37822f
 2	263	1795492121139861807	pibreeze	cb1a2f5b4da78714
+1	1445	1795492065399701285	CMakeFiles/pibreeze.dir/src/main.c.o	d27d64cf7c37822f
+2	571	1795492861233438712	CMakeFiles/flow.dir/src/thermal.c.o	b0b970d65b3df316
+1	31	1795492065399701285	CMakeFiles/pibreeze.dir/src/thermal.c.o	8d32958b38b4f1d0
+105	1469	1795492065503701469	CMakeFiles/pibreeze.dir/src/ui/window.c.o	af2318b75bc89870
+65	91	1795492065463701398	CMakeFiles/pibreeze.dir/src/system_info.c.o	d48acbf8fa46819f
+31	65	1795492065431701341	CMakeFiles/pibreeze.dir/src/fan.c.o	a7208eeaab5cb7dc
+599	631	1795492861829449756	CMakeFiles/flow.dir/src/system_info.c.o	7700b91e53a2d425
+3	643	1795493463877718041	CMakeFiles/flow.dir/src/ui/window.c.o	700da0dd1db9d1e3
+91	105	1795492065491701447	CMakeFiles/pibreeze.dir/src/controller.c.o	28936134a26afac1
+571	599	1795492861801449237	CMakeFiles/flow.dir/src/fan.c.o	b2d27277da56de7b
+2	1716	1795492861233438712	CMakeFiles/flow.dir/src/main.c.o	f295271d7e119aba
+643	827	1795493464517731884	flow	bd2b2c782ad832dd
+2	579	1795493638429530291	CMakeFiles/flow.dir/src/ui/window.c.o	700da0dd1db9d1e3
+579	760	1795493639005542979	flow	bd2b2c782ad832dd
