@@ -308,6 +308,9 @@ on_about_clicked (GtkButton *button,
     gtk_about_dialog_set_program_name (
         GTK_ABOUT_DIALOG (about),
         "Flow");
+    gtk_about_dialog_set_logo_icon_name (
+        GTK_ABOUT_DIALOG (about),
+        "flow");
     gtk_about_dialog_set_version (
         GTK_ABOUT_DIALOG (about),
         "1.0");

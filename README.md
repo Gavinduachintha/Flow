@@ -121,8 +121,37 @@ update-desktop-database ~/.local/share/applications
 - **At or above 75 °C:** PWM is set to `255`.
 - **Manual mode:** Move the PWM slider to write a value between `0` and `255`.
 
-> [!WARNING]
-> Writing to `/sys/class/hwmon/hwmon2/pwm1` may require elevated permissions. If Flow shows **“Fan write failed - check PWM permissions,”** configure appropriate permissions or run the app through an authorized service/user setup. Avoid permanently making hardware controls writable for unknown users.
+> [!IMPORTANT]
+> Manual fan control and automatic PWM writes require permission to access
+> `/sys/class/hwmon/hwmon2/pwm1`. Flow should be run as a normal desktop user,
+> not with `sudo`.
+
+### Configure fan permissions
+
+The project includes `99-flow-pwmfan.rules`. Install it and add your user to
+the `gpio` group:
+
+```bash
+sudo cmake --install build
+sudo usermod -aG gpio "$USER"
+sudo udevadm control --reload-rules
+sudo udevadm trigger --subsystem-match=hwmon
+sudo reboot
+```
+
+After rebooting, verify the permissions:
+
+```bash
+ls -l /sys/class/hwmon/hwmon2/pwm1
+groups
+```
+
+The PWM file should be writable by the `gpio` group. If Flow still reports a
+fan write failure, confirm that the detected hwmon name is `pwmfan`:
+
+```bash
+cat /sys/class/hwmon/hwmon2/name
+```
 
 ## 📁 Project Structure
 
