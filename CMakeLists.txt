@@ -44,3 +44,19 @@ target_compile_options(flow PRIVATE
 install(TARGETS flow
     RUNTIME DESTINATION bin
 )
+
+install(FILES assets/icons/Flow_128.png
+    DESTINATION share/icons/hicolor/128x128/apps
+    RENAME flow.png
+)
+install(FILES assets/icons/Flow_256.png
+    DESTINATION share/icons/hicolor/256x256/apps
+    RENAME flow.png
+)
+install(FILES assets/icons/Flow_512.png
+    DESTINATION share/icons/hicolor/512x512/apps
+    RENAME flow.png
+)
+install(FILES flow.desktop
+    DESTINATION share/applications
+)
