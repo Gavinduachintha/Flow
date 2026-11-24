@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 
 int get_cpu_temperature(double *temperature)
