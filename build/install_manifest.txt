@@ -1,0 +1,5 @@
+/usr/bin/flow
+/usr/share/icons/hicolor/128x128/apps/flow.png
+/usr/share/icons/hicolor/256x256/apps/flow.png
+/usr/share/icons/hicolor/512x512/apps/flow.png
+/usr/share/applications/flow.desktop
